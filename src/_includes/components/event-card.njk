@@ -1,5 +1,5 @@
 {% for event in scheduledEvents %}
-  <div class="border-4 border-pink-700 rounded-md p-5">
+  <div class="border-4 border-pink-700 rounded-md p-5 mt-5">
     <div class="flex items-center">
       <img src={{ "https://cdn.discordapp.com/guild-events/" + event.id + "/" + event.image + ".png"  }} />
       <div class="ml-3">
@@ -10,10 +10,16 @@
       </div>
     </div>
     <div class="mt-3 text-sm leading-5 text-gray-900">
-      <p>{{ event.name }}</p>
+      <p>Title: {{ event.name }}</p>
       </div>
     <div class="mt-3 text-sm leading-5 text-gray-900">
-      {{ event.description }}
+      Description: {{ event.description }}
     </div>
+
+    {% if event.entity_metadata %}
+      <div class="mt-3 text-sm leading-5 text-gray-900">
+        <a href={{ event.entity_metadata.location }}>Where: {{ event.entity_metadata.location }}</a>
+      </div>
+    {% endif %}
   </div>
 {% endfor %}
