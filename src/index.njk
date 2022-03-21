@@ -5,13 +5,13 @@ layout: layouts/base.njk
 
 <div class="flex flex-col items-center justify-center p-10 prose-lg">
   <h1 class="animate-bounce">Hello and welcome to the home page!</h1>
+
+  <a href="/events">Events</a>
   
   {% include 'components/counter.njk' %}   
 
-  {% Flex { direction: "col", align: "center", justify: "center"} %}
+  {# {% Flex { direction: "col", align: "center", justify: "center"} %}
     <p>This is rendering in the shortcode</p>
-  {% endFlex %}
-
-  {% include 'components/event-card.njk' %}  
+  {% endFlex %} #}
 
 </div>

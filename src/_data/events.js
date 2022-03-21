@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 require("dotenv").config();
 
 module.exports = async function () {
@@ -9,9 +9,7 @@ module.exports = async function () {
     }
   })
 
-  const data = await res.json();
+  const data = await res.json()
 
-  console.log(data)
-
-  return data;
+  return data
 }
