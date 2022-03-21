@@ -5,10 +5,8 @@ permalink:
     events: "/events/"
 ---
 
-<div>
-  welcome to the events page
-</div>
-
+<div class="flex flex-col items-center justify-center">
+  <a href="/">Home</a> | welcome to the events page
 
 {% for event in events %}
   <div class="border-4 border-pink-700 rounded-md p-5 mt-5">
@@ -35,3 +33,4 @@ permalink:
     {% endif %}
   </div>
 {% endfor %}
+</div>

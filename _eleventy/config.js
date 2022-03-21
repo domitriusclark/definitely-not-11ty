@@ -1,6 +1,6 @@
+const fetch = require("node-fetch");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 // const pairedShortcodes = require('./paired-shortcodes');
-const fetch = require("node-fetch");
 
 require("dotenv").config();
 
