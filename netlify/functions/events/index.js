@@ -17,8 +17,8 @@ async function handler(event) {
       headers: {
         "Content-Type": "text/html; charset=UTF-8",
       },
-      ttl: 300,
       body: await elev.render(),
+      ttl: 60,
     };
   } catch (error) {
     // Only console log for matching serverless paths
