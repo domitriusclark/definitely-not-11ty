@@ -4,9 +4,8 @@ module.exports = function (eleventyConfig) {
   // Serverless
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "events",
-    functionsDir: './netlify/functions',
-    inputDir: './src',
-    redirects: "netlify-toml-builders"
+    functionsDir: './netlify/builders',
+    inputDir: './src'
   });
 
   return {
