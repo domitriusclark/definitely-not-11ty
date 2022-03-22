@@ -17,6 +17,7 @@ async function handler(event) {
       headers: {
         "Content-Type": "text/html; charset=UTF-8",
       },
+      ttl: 300,
       body: await elev.render(),
     };
   } catch (error) {
@@ -39,4 +40,5 @@ async function handler(event) {
   }
 }
 
-exports.handler = handler;
+const { builder } = require("@netlify/functions")
+exports.handler = builder(handler);
