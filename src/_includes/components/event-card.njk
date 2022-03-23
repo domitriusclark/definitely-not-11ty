@@ -1,4 +1,4 @@
-{% for event in scheduledEvents %}
+{% macro card(event) %}
   <div class="border-4 border-pink-700 rounded-md p-5 mt-5">
     <div class="flex items-center">
       <img src={{ "https://cdn.discordapp.com/guild-events/" + event.id + "/" + event.image + ".png"  }} />
@@ -22,4 +22,4 @@
       </div>
     {% endif %}
   </div>
-{% endfor %}
+{% endmacro %}
