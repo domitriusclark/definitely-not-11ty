@@ -1,0 +1,16 @@
+{% 
+  set linkList = [
+    {'text': 'Home','url': '/'},
+    {'text': 'Events','url': '/events/'}
+  ] 
+%}
+
+<nav class="h-10 w-full">
+  <ul class="flex p-7 gap-4 under items-center w-full h-full bg-neutral-800 text-gray-300 ">
+    {% for link in linkList  %}
+      <li class="hover:text-purple-600">
+        <a class="{{ 'underline underline-offset-2' if link.url === page.url }}" href="{{ link.url }}">{{ link.text }}</a>
+      </li>  
+    {% endfor %}
+  </ul>
+</nav>
