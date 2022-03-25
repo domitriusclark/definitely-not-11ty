@@ -1,15 +1,14 @@
-const fetch = require('node-fetch');
 require("dotenv").config();
 
+const { createClient } = require("@supabase/supabase-js");
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 module.exports = async function () {
-  const res = await fetch(`https://discord.com/api/v9/guilds/${process.env.DISCORD_GUILD_ID}/scheduled-events`, {
-    method: "GET",
-    headers: {
-      "Authorization": `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-    }
-  })
+  const { data } = await supabase.from("blogPosts").select();
 
-  const data = await res.json()
-
-  return data
-}
+  return data;
+};
