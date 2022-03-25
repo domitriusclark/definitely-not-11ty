@@ -5,24 +5,20 @@ const { EleventyServerless } = require("@11ty/eleventy");
 require("./eleventy-bundler-modules.js");
 
 async function handler(event) {
-  let elev = new EleventyServerless("zach-is-cool", {
+  let elev = new EleventyServerless("events", {
     path: event.path,
     query: event.queryStringParameters,
-    functionsDir: "./netlify/functions",
+    functionsDir: "./netlify/functions/",
   });
 
   try {
-    let [page] = await elev.getOutput();
-
-    // If you want some of the data cascade available in `page.data`, use `eleventyConfig.dataFilterSelectors`.
-    // Read more: https://www.11ty.dev/docs/config/#data-filter-selectors
-
     return {
       statusCode: 200,
       headers: {
         "Content-Type": "text/html; charset=UTF-8",
       },
-      body: page.content,
+      body: await elev.render(),
+      ttl: 60,
     };
   } catch (error) {
     // Only console log for matching serverless paths
@@ -44,12 +40,5 @@ async function handler(event) {
   }
 }
 
-// Choose one:
-// * Runs on each request: AWS Lambda (or Netlify Function)
-// * Runs on first request only: Netlify On-demand Builder
-//   (don’t forget to `npm install @netlify/functions`)
-
-exports.handler = handler;
-
-//const { builder } = require("@netlify/functions");
-//exports.handler = builder(handler);
+const { builder } = require("@netlify/functions")
+exports.handler = builder(handler);

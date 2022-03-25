@@ -3,7 +3,7 @@ const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 module.exports = function (eleventyConfig) {
   // Serverless
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "zach-is-cool",
+    name: "events",
     functionsDir: "./netlify/functions",
     inputDir: "./src",
     redirects: "netlify-toml-builders",

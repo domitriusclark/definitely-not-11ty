@@ -1,10 +1,11 @@
 ---
-title: Zach is cool
+title: Discord Events
 layout: "layouts/base.njk"
-
+permalink: 
+    events: "/events/"
 ---
 
-{% import "components/zach-card.njk" as zachCard %}
+{% import "components/event-card.njk" as eventCard %}
 
 <div class="flex flex-col items-center justify-center mt-10">
   <div class="flex flex-col">
@@ -12,7 +13,7 @@ layout: "layouts/base.njk"
      <p class="animate-pulse">Served via On Demand Builders</p>
   </div>
 
-
-  {{ zachCard.card(title) }}
-
+{% for event in events %}
+  {{ eventCard.card(event) }}
+{% endfor %}
 </div>
